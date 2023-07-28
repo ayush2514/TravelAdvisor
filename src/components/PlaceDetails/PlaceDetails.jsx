@@ -1,9 +1,40 @@
-import React from 'react'
+/* eslint-disable react/prop-types */
+import React from "react";
+import {
+  Box,
+  Typography,
+  Button,
+  Card,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Chip,
+} from "@material-ui/core";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
+import PhoneIcon from "@material-ui/icons/Phone";
+import Rating from "@material-ui/lab/Rating";
 
-const PlaceDetails = ({place }) => {
+import useStyles from "./styles";
+
+const PlaceDetails = ({ place }) => {
   return (
-    <h1>{place.name}</h1>
-  )
-}
+    <Card elevation={6}>
+      <CardMedia
+        style={{ height: 350 }}
+        image={
+          place.photo
+            ? place.photo.images.large.url
+            : "https://lh5.googleusercontent.com/p/AF1QipNwhEHCHR98RZ7bLj_HIvMYbvZGhBpYvtwvkmSk=w260-h175-n-k-no"
+        }
+        title={place.name}
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5">
+          {place.name}
+        </Typography>
+      </CardContent>
+    </Card>
+  );
+};
 
-export default PlaceDetails
+export default PlaceDetails;
